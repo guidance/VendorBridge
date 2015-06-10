@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * VendorBridge Integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Guidance
+ * @package     VendorBridge
+ * @copyright   Copyright (c) 2015 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Guidance_VendorBridge>
+            <version>1.0.0</version>
+        </Guidance_VendorBridge>
+    </modules>
+    <global>
+        <helpers>
+            <vendorbridge>
+                <class>Guidance_VendorBridge_Helper</class>
+            </vendorbridge>
+        </helpers>
+        <models>
+            <vendorbridge>
+                <class>Guidance_VendorBridge_Model</class>
+                <resourceModel>vendorbridge_resource</resourceModel>
+            </vendorbridge>
+            <vendorbridge_resource>
+                <class>Guidance_VendorBridge_Model_Resource</class>
+                <entities>
+                    <import>
+                        <table>vendorbridge_import</table>
+                    </import>
+                    <export>
+                        <table>vendorbridge_export</table>
+                    </export>
+                    <inventory>
+                        <table>vendorbridge_inventory</table>
+                    </inventory>
+                    <vendor>
+                        <table>vendorbridge_vendor</table>
+                    </vendor>
+                    <shipMethod>
+                        <table>vendorbridge_shipmethod</table>
+                    </shipMethod>
+                </entities>
+            </vendorbridge_resource>
+        </models>
+        <resources>
+            <vendorbridge_setup>
+                <setup>
+                    <class>Guidance_VendorBridge_Model_Resource_Setup</class>
+                    <module>Guidance_VendorBridge</module>
+                </setup>
+            </vendorbridge_setup>
+        </resources>
+        <blocks>
+            <vendorbridge>
+                <class>Guidance_VendorBridge_Block</class>
+            </vendorbridge>
+        </blocks>
+        <template>
+            <email>
+                <vendorbridge_email_notification_template translate="label" module="vendorbridge">
+                    <label>VendorBridge Email Notification Template</label>
+                    <file>vendorbridge_email_notification_template.html</file>
+                    <type>html</type>
+                </vendorbridge_email_notification_template>
+            </email>
+        </template>
+    </global>
+    <admin>
+        <routers>
+            <vendorbridge>
+                <use>admin</use>
+                <args>
+                    <module>Guidance_VendorBridge</module>
+                    <frontName>vendorbridge</frontName>
+                </args>
+            </vendorbridge>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <vendorbridge>
+                    <file>vendorbridge.xml</file>
+                </vendorbridge>
+            </updates>
+        </layout>
+    </adminhtml>
+    <crontab>
+        <jobs>
+            <vendorbridge_import_orders>
+                <schedule>
+                    <config_path>vendorbridge/import_orders/cron_expression</config_path>
+                </schedule>
+                <run>
+                    <model>vendorbridge/cron::importOrders</model>
+                </run>
+            </vendorbridge_import_orders>
+            <vendorbridge_export_inventory_full>
+                <schedule>
+                    <config_path>vendorbridge/export_inventory_full/cron_expression</config_path>
+                </schedule>
+                <run>
+                    <model>vendorbridge/inventory::exportInventoryFull</model>
+                </run>
+            </vendorbridge_export_inventory_full>
+            <vendorbridge_export_inventory_partial>
+                <schedule>
+                    <config_path>vendorbridge/export_inventory_partial/cron_expression</config_path>
+                </schedule>
+                <run>
+                    <model>vendorbridge/cron::exportInventoryPartial</model>
+                </run>
+            </vendorbridge_export_inventory_partial>
+            <vendorbridge_export_shipments>
+                <schedule>
+                    <config_path>vendorbridge/export_shipments/cron_expression</config_path>
+                </schedule>
+                <run>
+                    <model>vendorbridge/cron::exportShipments</model>
+                </run>
+            </vendorbridge_export_shipments>
+            <vendorbridge_export_invoices>
+                <schedule>
+                    <config_path>vendorbridge/export_invoices/cron_expression</config_path>
+                </schedule>
+                <run>
+                    <model>vendorbridge/cron::exportInvoices</model>
+                </run>
+            </vendorbridge_export_invoices>
+            <vendorbridge_export_cancels>
+                <schedule>
+                    <config_path>vendorbridge/export_cancels/cron_expression</config_path>
+                </schedule>
+                <run>
+                    <model>vendorbridge/cron::exportCancels</model>
+                </run>
+            </vendorbridge_export_cancels>
+        </jobs>
+    </crontab>
+    <default>
+        <vendorbridge>
+            <general>
+                <enabled>1</enabled>
+                <test_mode>1</test_mode>
+            </general>
+            <email>
+                <identity><![CDATA[support]]></identity>
+                <recipients><![CDATA[ahofs@guidance.com]]></recipients>
+            </email>
+            <import_orders>
+                <cron_expression><![CDATA[*/10 * * * *]]></cron_expression>
+            </import_orders>
+            <export_inventory_full>
+                <cron_expression><![CDATA[0 2 1 * *]]></cron_expression>
+            </export_inventory_full>
+            <export_inventory_partial>
+                <cron_expression><![CDATA[30 0,12 * * *]]></cron_expression>
+            </export_inventory_partial>
+            <export_shipments>
+                <cron_expression><![CDATA[10 * * * *]]></cron_expression>
+            </export_shipments>
+            <export_invoices>
+                <cron_expression><![CDATA[20 * * * *]]></cron_expression>
+            </export_invoices>
+            <export_cancels>
+                <cron_expression><![CDATA[0 * * * *]]></cron_expression>
+            </export_cancels>
+        </vendorbridge>
+    </default>
+</config>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * VendorBridge Integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Guidance
+ * @package     VendorBridge
+ * @copyright   Copyright (c) 2015 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <menu>
+        <vendorbridge translate="title" module="vendorbridge">
+            <title>Vendor Bridge</title>
+            <sort_order>20</sort_order>
+            <children>
+                <imports module="vendorbridge" translate="title">
+                    <title>Imports</title>
+                    <sort_order>10</sort_order>
+                    <action>vendorbridge/adminhtml_import/index</action>
+                </imports>
+                <exports module="vendorbridge" translate="title">
+                    <title>Exports</title>
+                    <sort_order>20</sort_order>
+                    <action>vendorbridge/adminhtml_export/index</action>
+                </exports>
+                <inventory module="vendorbridge" translate="title">
+                    <title>Inventory</title>
+                    <sort_order>30</sort_order>
+                    <action>vendorbridge/adminhtml_inventory/index</action>
+                </inventory>
+                <vendors module="vendorbridge" translate="title">
+                    <title>Vendors</title>
+                    <sort_order>40</sort_order>
+                    <action>vendorbridge/adminhtml_vendor/index</action>
+                </vendors>
+                <ship_method module="vendorbridge" translate="title">
+                    <title>Ship Method Mapping</title>
+                    <sort_order>50</sort_order>
+                    <action>vendorbridge/adminhtml_shipMethod/index</action>
+                </ship_method>
+                <configure module="vendorbridge" translate="title">
+                    <title>Settings</title>
+                    <sort_order>60</sort_order>
+                    <action>adminhtml/system_config/edit/section/vendorbridge</action>
+                </configure>
+            </children>
+        </vendorbridge>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <vendorbridge module="vendorbridge" translate="title">
+                        <title>Vendor Bridge Integration</title>
+                        <sort_order>5150</sort_order>
+                        <children>
+                            <imports>
+                                <title>Imports</title>
+                                <sort_order>10</sort_order>
+                            </imports>
+                            <exports>
+                                <title>Exports</title>
+                                <sort_order>20</sort_order>
+                            </exports>
+                            <inventory>
+                                <title>Inventory</title>
+                                <sort_order>30</sort_order>
+                            </inventory>
+                            <vendors>
+                                <title>Vendors</title>
+                                <sort_order>40</sort_order>
+                            </vendors>
+                            <ship_method>
+                                <title>Ship Method Mapping</title>
+                                <sort_order>50</sort_order>
+                            </ship_method>
+                        </children>
+                    </vendorbridge>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <vendorbridge translate="title" module="vendorbridge">
+                                        <title>Vendor Bridge Integration System Config</title>
+                                    </vendorbridge>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

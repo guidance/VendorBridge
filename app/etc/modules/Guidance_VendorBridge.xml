@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * VendorBridge Integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Guidance
+ * @package     VendorBridge
+ * @copyright   Copyright (c) 2015 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Guidance_VendorBridge>
+            <codePool>local</codePool>
+            <active>true</active>
+            <depends/>
+        </Guidance_VendorBridge>
+    </modules>
+</config>

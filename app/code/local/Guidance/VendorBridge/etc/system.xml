@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * VendorBridge Integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Guidance
+ * @package     VendorBridge
+ * @copyright   Copyright (c) 2015 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <tabs>
+        <vendorbridge_settings translate="label" module="vendorbridge">
+            <label>Vendor Bridge Integration</label>
+            <sort_order>5150</sort_order>
+        </vendorbridge_settings>
+    </tabs>
+    <sections>
+        <vendorbridge translate="label" module="vendorbridge">
+            <label>Vendor Bridge Settings</label>
+            <tab>vendorbridge_settings</tab>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>0</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <comment><![CDATA[Enable/disable integration here]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enabled>
+                    </fields>
+                </general>
+                <email translate="label">
+                    <label>Email Notifications</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <identity translate="label">
+                            <label>Notification Email Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </identity>
+                        <recipients translate="label comment">
+                            <label>Send Notification Email To</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Comma-separated list.</comment>
+                        </recipients>
+                    </fields>
+                </email>
+                <import_orders translate="label">
+                    <label>Orders Import</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <cron_expression translate="label">
+                            <label>Cron Schedule</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>vendorbridge/source_system_config_backend_cronExpression</backend_model>
+                            <validate>validate-cron-expression</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cron_expression>
+                    </fields>
+                </import_orders>
+                <export_inventory_full translate="label">
+                    <label>Full Inventory Export</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>60</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <cron_expression translate="label">
+                            <label>Cron Schedule</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>vendorbridge/source_system_config_backend_cronExpression</backend_model>
+                            <validate>validate-cron-expression</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cron_expression>
+                    </fields>
+                </export_inventory_full>
+                <export_inventory_partial translate="label">
+                    <label>Partial Inventory Export</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>70</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <cron_expression translate="label">
+                            <label>Cron Schedule</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>vendorbridge/source_system_config_backend_cronExpression</backend_model>
+                            <validate>validate-cron-expression</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cron_expression>
+                    </fields>
+                </export_inventory_partial>
+                <export_shipments translate="label">
+                    <label>Export Shipment Confirmations</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>80</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <cron_expression translate="label">
+                            <label>Cron Schedule</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>vendorbridge/source_system_config_backend_cronExpression</backend_model>
+                            <validate>validate-cron-expression</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cron_expression>
+                    </fields>
+                </export_shipments>
+                <export_invoices translate="label">
+                    <label>Export Invoices</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>90</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <cron_expression translate="label">
+                            <label>Cron Schedule</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>vendorbridge/source_system_config_backend_cronExpression</backend_model>
+                            <validate>validate-cron-expression</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cron_expression>
+                    </fields>
+                </export_invoices>
+                <export_cancels translate="label">
+                    <label>Export Cancels</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <cron_expression translate="label">
+                            <label>Cron Schedule</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>vendorbridge/source_system_config_backend_cronExpression</backend_model>
+                            <validate>validate-cron-expression</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cron_expression>
+                    </fields>
+                </export_cancels>
+            </groups>
+        </vendorbridge>
+    </sections>
+</config>

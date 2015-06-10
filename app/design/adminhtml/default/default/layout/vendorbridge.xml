@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * VendorBridge Integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Guidance
+ * @package     VendorBridge
+ * @copyright   Copyright (c) 2015 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout>
+
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/vendorbridge/systemConfigValidation.js</name>
+            </action>
+        </reference>
+    </adminhtml_system_config_edit>
+
+    <vendorbridge_adminhtml_import_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>View Vendor Bridge Imports</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="vendorbridge/adminhtml_import" name="vendorbridge_import"/>
+        </reference>
+    </vendorbridge_adminhtml_import_index>
+
+    <vendorbridge_adminhtml_export_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>View Vendor Bridge Exports</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="vendorbridge/adminhtml_export" name="vendorbridge_export"/>
+        </reference>
+    </vendorbridge_adminhtml_export_index>
+
+    <vendorbridge_adminhtml_inventory_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Vendor Bridge Inventory</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="vendorbridge/adminhtml_inventory" name="vendorbridge_inventory"/>
+        </reference>
+    </vendorbridge_adminhtml_inventory_index>
+
+    <vendorbridge_adminhtml_inventory_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Vendor Bridge Inventory Item</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="vendorbridge/adminhtml_inventory_edit_tabs" name="vendorbridge_inventory_edit_tab"/>
+        </reference>
+        <reference name="content">
+            <block type="vendorbridge/adminhtml_inventory_edit" name="vendorbridge_inventory_edit"/>
+        </reference>
+    </vendorbridge_adminhtml_inventory_edit>
+
+    <vendorbridge_adminhtml_vendor_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Vendor Bridge Vendor</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="vendorbridge/adminhtml_vendor" name="vendorbridge_vendor"/>
+        </reference>
+    </vendorbridge_adminhtml_vendor_index>
+
+    <vendorbridge_adminhtml_vendor_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Vendor Bridge Vendor</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="vendorbridge/adminhtml_vendor_edit_tabs" name="vendorbridge_vendor_edit_tab"/>
+        </reference>
+        <reference name="content">
+            <block type="vendorbridge/adminhtml_vendor_edit" name="vendorbridge_vendor_edit"/>
+        </reference>
+    </vendorbridge_adminhtml_vendor_edit>
+
+    <vendorbridge_adminhtml_shipmethod_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Vendor Bridge Ship Methods</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="vendorbridge/adminhtml_shipMethod" name="vendorbridge_shipMethod"/>
+        </reference>
+    </vendorbridge_adminhtml_shipmethod_index>
+
+    <vendorbridge_adminhtml_shipmethod_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Vendor Bridge Ship Method</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="vendorbridge/adminhtml_shipMethod_edit_tabs" name="vendorbridge_shipMethod_edit_tab"/>
+        </reference>
+        <reference name="content">
+            <block type="vendorbridge/adminhtml_shipMethod_edit" name="vendorbridge_shipMethod_edit"/>
+        </reference>
+    </vendorbridge_adminhtml_shipmethod_edit>
+
+</layout>
