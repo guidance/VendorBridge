@@ -37,9 +37,10 @@ class Guidance_VendorBridge_Model_File_Edi
     public function getInterchangeHeader($interchangeId)
     {
         $args = array(
-            'interchange_id'          => (int)$interchangeId,
-            'interchange_sender_id'   => (string)$this->_vendor->getInterchangeSenderId(),
-            'interchange_receiver_id' => (string)$this->_vendor->getInterchangeReceiverId(),
+            'interchange_id'           => (int)$interchangeId,
+            'interchange_sender_id'    => (string)$this->_vendor->getInterchangeSenderId(),
+            'interchange_receiver_id'  => (string)$this->_vendor->getInterchangeReceiverId(),
+            'interchange_id_qualifier' => (string)$this->_vendor->getQualifier(),
         );
         /** @var $isa Guidance_VendorBridge_Model_File_Line_Isa */
         $isa = Mage::getModel('vendorbridge/file_line_isa', $args);

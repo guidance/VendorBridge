@@ -106,6 +106,13 @@ class Guidance_VendorBridge_Block_Adminhtml_Vendor_Grid extends Mage_Adminhtml_B
             'index'  => 'reseller_id',
         ));
 
+        $this->addColumn('qualifier', array(
+            'header' => $helper->__('Qualifier'),
+            'align'  => 'left',
+            'width'  => '50px',
+            'index'  => 'qualifier',
+        ));
+
         $this->addColumn('threshold', array(
             'header' => $helper->__('Inv. Threshold'),
             'align'  => 'left',

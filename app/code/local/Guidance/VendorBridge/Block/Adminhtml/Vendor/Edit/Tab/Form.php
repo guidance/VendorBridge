@@ -83,6 +83,13 @@ class Guidance_VendorBridge_Block_Adminhtml_Vendor_Edit_Tab_Form extends Mage_Ad
             'after_element_html' => '<p><small>This amount will be deducted from inventory quantity for all products for this vendor</small></p>',
         ));
 
+        $fieldset->addField('qualifier', 'text', array(
+            'label'    => $helper->__('Interchange ID Qualifier'),
+            'name'     => 'qualifier',
+            'class'    => 'required-entry',
+            'required' => true,
+        ));
+
         /** @var $allowedTypes Guidance_VendorBridge_Model_Source_AllowedTypes */
         $allowedTypes = Mage::getModel('vendorbridge/source_allowedTypes');
         $fieldset->addField('allowed_types', 'multiselect', array(

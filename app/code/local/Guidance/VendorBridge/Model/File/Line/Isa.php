@@ -14,7 +14,6 @@ class Guidance_VendorBridge_Model_File_Line_Isa extends Guidance_VendorBridge_Mo
      */
     const ROW_TYPE                  = 'ISA';
     const NO_INFORMATION_PRESENT    = '00';
-    const INTERCHANGE_ID_QUALIFIER  = 'ZZ';
     const SENDER_ID_LENGTH          = 15;
     const RECEIVER_ID_LENGTH        = 15;
     const NOT_USED_LENGTH           = 10;
@@ -27,15 +26,17 @@ class Guidance_VendorBridge_Model_File_Line_Isa extends Guidance_VendorBridge_Mo
 
     private $_interchangeSenderId;
     private $_interchangeReceiverId;
+    private $_interchangeIdQualifier;
 
     /**
      * @param array $args
      */
     public function __construct(array $args)
     {
-        $this->_interchangeId         = $args['interchange_id'];
-        $this->_interchangeReceiverId = $args['interchange_receiver_id'];
-        $this->_interchangeSenderId   = $args['interchange_sender_id'];
+        $this->_interchangeId          = $args['interchange_id'];
+        $this->_interchangeReceiverId  = $args['interchange_receiver_id'];
+        $this->_interchangeSenderId    = $args['interchange_sender_id'];
+        $this->_interchangeIdQualifier = $args['interchange_id_qualifier'];
     }
 
     /**
@@ -59,9 +60,9 @@ class Guidance_VendorBridge_Model_File_Line_Isa extends Guidance_VendorBridge_Mo
             'ISA02' => $this->_getNotUsedString(),
             'ISA03' => self::NO_INFORMATION_PRESENT,
             'ISA04' => $this->_getNotUsedString(),
-            'ISA05' => self::INTERCHANGE_ID_QUALIFIER,
+            'ISA05' => $this->_interchangeIdQualifier,
             'ISA06' => $this->_getInterchangeSenderId(),
-            'ISA07' => self::INTERCHANGE_ID_QUALIFIER,
+            'ISA07' => $this->_interchangeIdQualifier,
             'ISA08' => $this->_getInterchangeReceiverId(),
             'ISA09' => date(self::DATE_FORMAT, time()),
             'ISA10' => $this->_getTime(),

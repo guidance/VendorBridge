@@ -13,6 +13,7 @@
  * @method string|array getAllowedTypes()
  * @method string getCreatedAt()
  * @method string getUpdatedAt()
+ * @method string getQualifier()
  *
  * @author      Guidance Magento Team <magento@guidance.com>
  * @category    Guidance
